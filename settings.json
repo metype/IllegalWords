@@ -1,0 +1,35 @@
+{
+  "871724942260076614": {
+    "banned-words": [
+      "fuck",
+      "shit"
+    ],
+    "response-type": "delete-message",
+    "infraction-limit": 3,
+    "infraction-response-type": "direct-message",
+    "role-id": "993123344461344784",
+    "477863227590443040": {
+      "infractions": 0
+    },
+    "message-content": "Hey! You've been using a lot of words that our server considers inappropriate, consider checking which words we disallow, or face the possibility of being banned."
+  },
+  "872992726642216971": {},
+  "976655520888930304": {
+    "banned-words": [
+      "monopoly"
+    ],
+    "response-type": "apply-role",
+    "role-id": "976736170006413373",
+    "436137952872103936": {
+      "infractions": 0
+    },
+    "users": {
+      "436137952872103936": {
+        "infractions": 0
+      },
+      "945405061155160145": {
+        "infractions": 0
+      }
+    }
+  }
+}
