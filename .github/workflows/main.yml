@@ -8,5 +8,5 @@ jobs:
 
     - name: Gather build info
       run: |
-        touch build-info.txt
-        git rev-parse --short "$GITHUB_SHA" >> build_info.txt
+        touch ./build-info.txt
+        git rev-parse --short "$GITHUB_SHA" >> ./build_info.txt
