@@ -5,9 +5,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-
+    
     - name: Gather build info
       run: |
-        touch ./build-info.txt
         git rev-parse --short "$GITHUB_SHA" >> ./build_info.txt
-        ls -a
+    
+    - uses: EndBug/add-and-commit@v9
+        with:
+          author_name: Github Workflow
+          fetch: true
+          message: 'Commit from Github Workflow'
