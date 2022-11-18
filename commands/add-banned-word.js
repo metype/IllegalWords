@@ -1,4 +1,5 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
+const { Permissions } = require('discord.js')
 const { get } = require('../settings');
 
 module.exports = {
@@ -10,7 +11,7 @@ module.exports = {
                 .setDescription('The word to add to the list')
                 .setRequired(true)),
     async execute(interaction) {
-        if(!interaction.memberPermissions.has('ADMINISTRATOR')) return await interaction.reply({ content: `You cannot perform this action!`, ephemeral: true });
+        if(!interaction.memberPermissions.has(Permissions.FLAGS.MANAGE_GUILD)) return await interaction.reply({ content: `You cannot perform this action!`, ephemeral: true });
         if (get(interaction.guildId).get('banned-words', []).object.includes(interaction.options.getString('word').toLowerCase())) {
             return await interaction.reply({ content: `That word is already in the list!`, ephemeral: true });
         }

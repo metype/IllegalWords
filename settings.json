@@ -40,5 +40,11 @@
         "infractions": 0
       }
     }
+  },
+  "1043141942386642985": {
+    "strict-mode": true,
+    "ignored-channels": [],
+    "banned-words": [],
+    "response-type": "delete-message"
   }
 }

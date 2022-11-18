@@ -1,0 +1,1 @@
+git rev-parse --short "$GITHUB_SHA" > build_info.txt

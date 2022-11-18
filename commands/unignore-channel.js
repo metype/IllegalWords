@@ -1,4 +1,5 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
+const { Permissions } = require('discord.js')
 const { get } = require('../settings');
 
 module.exports = {
@@ -10,7 +11,7 @@ module.exports = {
                 .setDescription('The channel for the bot to no longer ignore')
                 .setRequired(true)),
     async execute(interaction) {
-        if(!interaction.memberPermissions.has('ADMINISTRATOR')) return await interaction.reply({ content: `You cannot perform this action!`, ephemeral: true });
+        if(!interaction.memberPermissions.has(Permissions.FLAGS.MANAGE_GUILD)) return await interaction.reply({ content: `You cannot perform this action!`, ephemeral: true });
         get(interaction.guildId).get('ignored-channels', []).remove(interaction.options.getChannel('channel').id.toLowerCase());
         return await interaction.reply({ content: `The bot will now pay attention to all messages sent in <#${interaction.options.getChannel('channel').id.toLowerCase()}>`, ephemeral: true });
 	},

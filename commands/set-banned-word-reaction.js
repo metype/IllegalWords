@@ -1,4 +1,5 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
+const { Permissions } = require('discord.js')
 const { set, get } = require('../settings');
 
 module.exports = {
@@ -36,7 +37,7 @@ module.exports = {
 						.addStringOption(option => option.setName('message').setDescription('The message to send').setRequired(true))
 						.addIntegerOption(option => option.setName('limit').setDescription('The infraction limit').setRequired(true)))),
 	async execute(interaction) {
-		if(!interaction.memberPermissions.has('ADMINISTRATOR')) return await interaction.reply({ content: `You cannot perform this action!`, ephemeral: true });
+		if(!interaction.memberPermissions.has(Permissions.FLAGS.MANAGE_GUILD)) return await interaction.reply({ content: `You cannot perform this action!`, ephemeral: true });
 		if (interaction.options.getSubcommandGroup(false) === 'infraction') {
 			let limit = interaction.options.getInteger('limit');
 			get(interaction.guildId).set('response-type', 'infraction');
