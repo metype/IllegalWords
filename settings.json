@@ -4,14 +4,23 @@
       "fuck",
       "shit"
     ],
-    "response-type": "delete-message",
-    "infraction-limit": 3,
+    "response-type": "infraction",
+    "infraction-limit": 5,
     "infraction-response-type": "direct-message",
     "role-id": "993123344461344784",
     "477863227590443040": {
       "infractions": 0
     },
-    "message-content": "Hey! You've been using a lot of words that our server considers inappropriate, consider checking which words we disallow, or face the possibility of being banned."
+    "message-content": "This is a test message",
+    "ignored-channels": [
+      "1010807465077657641"
+    ],
+    "users": {
+      "477863227590443040": {
+        "infractions": 0
+      }
+    },
+    "strict-mode": false
   },
   "872992726642216971": {},
   "976655520888930304": {

@@ -41,12 +41,19 @@ client.on('interactionCreate', async interaction => {
 
 client.on('messageCreate', (message) => {
     if (message.member.permissions.has('ADMINISTRATOR')) return;
+    for (channel of get(message.guild.id).get('ignored-channels', []).object) {
+        if(message.channelId == channel) return;
+    }
     let words = message.content.split(' ');
     let bannedWordUser = false;
     for (let word of words) {
         for (banned of get(message.guild.id).get('banned-words', []).object) {
             if (word.toLowerCase().includes(banned)) {
-                bannedWordUser = (!(dictionaryWords.has(word.toLowerCase()) && word.toLowerCase() != banned) | bannedWordUser);
+                if(get(message.guild.id).get('strict-mode',false).object == true){
+                    bannedWordUser = true | bannedWordUser;
+                }else{
+                    bannedWordUser = (word.toLowerCase() == banned) | bannedWordUser;
+                }
             }
         }
     }
